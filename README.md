@@ -143,7 +143,7 @@ Il existe de très nombreux services sur Internet permettant de générer des QR
 * 6 périodes
 * A rendre le dimanche **01.12.2019** à **23h55** au plus tard.
 
-## Rendu/Evaluation
+## Rendu/Evaluation
 
 Pour rendre votre code, nous vous demandons de bien vouloir zipper votre projet Android Studio, vous veillerez à bien supprimer les dossiers build (à la racine et dans app/) pour limiter la taille du rendu. En plus, vous remettrez un document **pdf** comportant au minimum les réponses aux questions posées.
 
