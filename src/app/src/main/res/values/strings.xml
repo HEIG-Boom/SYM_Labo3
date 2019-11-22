@@ -2,4 +2,7 @@
     <string name="app_name">Labo3</string>
     <string name="btn_nfc">NFC activity</string>
     <string name="btn_barcode">Barcode activity</string>
+    <string name="btn_connect">Connect</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>
