@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Launch the appropriate activity
         btnNFC.setOnClickListener((v) -> {
-            Intent intent = new Intent(this, ch.heigvd.sym.labo3.NFCActivity.class);
-            this.startActivity(intent);
+            Intent intent = new Intent(this, NFCActivity.class);
+            startActivity(intent);
         });
 
         btnBarcode.setOnClickListener((v) -> {
-            Intent intent = new Intent(this, ch.heigvd.sym.labo3.BarcodeActivity.class);
-            this.startActivity(intent);
+            Intent intent = new Intent(this, BarcodeActivity.class);
+            startActivity(intent);
         });
     }
 }
