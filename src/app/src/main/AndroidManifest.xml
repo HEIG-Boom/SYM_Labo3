@@ -20,14 +20,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".barcode.BarcodeActivity" />
         <activity android:name=".barcode.ScanActivity" />
-        <activity android:name=".NFCActivity">
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".NFCConnectedActivity"></activity>
+        <activity android:name=".NFCActivity" />
+        <activity android:name=".NFCConnectedActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

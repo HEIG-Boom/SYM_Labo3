@@ -123,7 +123,8 @@ public class NFCReader {
 
             NdefRecord[] records = ndefMessage.getRecords();
             for (NdefRecord ndefRecord : records) {
-                if (ndefRecord.getTnf() == NdefRecord.TNF_WELL_KNOWN && Arrays.equals(ndefRecord.getType(), NdefRecord.RTD_TEXT)) {
+                if (ndefRecord.getTnf() == NdefRecord.TNF_WELL_KNOWN && Arrays.equals(ndefRecord.getType(),
+                        NdefRecord.RTD_TEXT)) {
                     try {
                         return readText(ndefRecord);
                     } catch (UnsupportedEncodingException e) {
