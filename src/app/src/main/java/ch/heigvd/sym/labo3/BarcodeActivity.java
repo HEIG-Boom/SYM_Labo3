@@ -21,7 +21,7 @@ public class BarcodeActivity extends AppCompatActivity {
         Button scanButton = findViewById(R.id.scanButton);
 
         scanButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, BarcodeScanner.class);
+            Intent intent = new Intent(this, ScanActivity.class);
             startActivity(intent);
         });
 
