@@ -22,14 +22,16 @@ import ch.heigvd.sym.labo3.R;
 public class BarcodeActivity extends AppCompatActivity {
     private static int REQUEST_CODE = 1;
 
-    private TextView barCodeValue;
+    private TextView barcodeContent;
+    private TextView barcodeFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barcode);
 
-        barCodeValue = findViewById(R.id.barcodeValue);
+        barcodeContent = findViewById(R.id.barcodeContent);
+        barcodeFormat = findViewById(R.id.barcodeFormat);
 
         Button scanButton = findViewById(R.id.scanButton);
 
@@ -44,7 +46,8 @@ public class BarcodeActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                barCodeValue.setText(data.getStringExtra("contents"));
+                barcodeContent.setText(data.getStringExtra("contents"));
+                barcodeFormat.setText(data.getStringExtra("format"));
             } else {
                 // Log error
             }

@@ -8,4 +8,8 @@
     <string name="scanner">Place the camera in front of the barcode</string>
     <string name="barcodeResult">The barcode\'s value will appear here</string>
     <string name="barcodeFormat">The barcode\'s format will appear here</string>
+    <string name="content">Content:</string>
+    <string name="scan_barcode">Scan Barcode</string>
+    <string name="barcode_activity">Barcode Activity</string>
+    <string name="format">Format:</string>
 </resources>
