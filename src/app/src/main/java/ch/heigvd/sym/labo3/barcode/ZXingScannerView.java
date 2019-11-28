@@ -27,6 +27,15 @@ import me.dm7.barcodescanner.core.BarcodeScannerView;
 import me.dm7.barcodescanner.core.DisplayUtils;
 
 // TODO rename things and log exceptions!!!
+/**
+ * Actual scanner view, integrated in the app
+ *
+ * Source : http://www.codeplayon.com/2018/10/android-create-a-bar-code-scanner-zxingscannerview/
+ *
+ * @author Jael Dubey, Loris Gilliand, Mateo Tutic, Luc Wachter
+ * @version 1.0
+ * @since 2019-11-28
+ */
 public class ZXingScannerView extends BarcodeScannerView {
     private static final String TAG = "ZXingScannerView";
 

@@ -10,7 +10,13 @@ import android.widget.TextView;
 import ch.heigvd.sym.labo3.R;
 
 // TODO comments, headers
-// Source : http://www.codeplayon.com/2018/10/android-create-a-bar-code-scanner-zxingscannerview/
+/**
+ * Activity that launches the scanner and prints the results in the textbox
+ *
+ * @author Jael Dubey, Loris Gilliand, Mateo Tutic, Luc Wachter
+ * @version 1.0
+ * @since 2019-11-22
+ */
 public class BarcodeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
