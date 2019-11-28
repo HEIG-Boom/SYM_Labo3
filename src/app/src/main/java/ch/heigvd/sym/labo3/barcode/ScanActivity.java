@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.zxing.Result;
 
@@ -28,7 +27,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
  */
 public class ScanActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     private ZXingScannerView mScannerView;
-    String position, format;
+    String contents, format;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,13 +60,14 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
 
     @Override
     public void handleResult(Result rawResult) {
-        Toast.makeText(this, "Contents = " + rawResult.getText() + ", Format = " + rawResult.getBarcodeFormat().toString(), Toast.LENGTH_LONG).show();
-        position = rawResult.getText();
+        contents = rawResult.getText();
         format = rawResult.getBarcodeFormat().toString();
-        Intent intent = new Intent();
-        intent.putExtra("Contents", position);
-        intent.putExtra("Format", format);
-        setResult(RESULT_OK, intent);
+
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("contents", contents);
+        returnIntent.putExtra("format", format);
+        setResult(RESULT_OK, returnIntent);
+
         finish();
     }
 }
