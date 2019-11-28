@@ -14,7 +14,6 @@ import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
-import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 
@@ -27,9 +26,10 @@ import me.dm7.barcodescanner.core.BarcodeScannerView;
 import me.dm7.barcodescanner.core.DisplayUtils;
 
 // TODO rename things and log exceptions!!!
+
 /**
  * Actual scanner view, integrated in the app
- *
+ * <p>
  * Source : http://www.codeplayon.com/2018/10/android-create-a-bar-code-scanner-zxingscannerview/
  *
  * @author Jael Dubey, Loris Gilliand, Mateo Tutic, Luc Wachter
@@ -98,6 +98,7 @@ public class ZXingScannerView extends BarcodeScannerView {
                     for (int x = 0; x < width; x++)
                         rotatedData[x * height + height - y - 1] = data[x + y * width];
                 }
+
                 int tmp = width;
                 width = height;
                 height = tmp;
@@ -109,13 +110,11 @@ public class ZXingScannerView extends BarcodeScannerView {
 
             if (source != null) {
                 BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+
                 try {
                     rawResult = mMultiFormatReader.decodeWithState(bitmap);
-                } catch (ReaderException re) {
-                    // continue
-                } catch (NullPointerException npe) {
-                    // This is terrible
-                } catch (ArrayIndexOutOfBoundsException e) {
+                } catch (Exception e) {
+                    Log.e(TAG, e.toString(), e);
                 } finally {
                     mMultiFormatReader.reset();
                 }
@@ -124,13 +123,15 @@ public class ZXingScannerView extends BarcodeScannerView {
             final Result finalRawResult = rawResult;
             if (finalRawResult != null) {
                 Handler handler = new Handler(Looper.getMainLooper());
+
                 handler.post(() -> {
                     // Stopping the preview can take a little long.
-                    // So we want to set result handler to null to discard subsequent calls to
-                    // onPreviewFrame.
+                    // So we want to set result handler to null to discard
+                    // subsequent calls to onPreviewFrame.
                     ResultHandler tmpResultHandler = mResultHandler;
                     mResultHandler = null;
                     stopCameraPreview();
+
                     if (tmpResultHandler != null) {
                         tmpResultHandler.handleResult(finalRawResult);
                     }
@@ -139,7 +140,6 @@ public class ZXingScannerView extends BarcodeScannerView {
                 camera.setOneShotPreviewCallback(this);
             }
         } catch (RuntimeException e) {
-            // TODO: Terrible hack. It is possible that this method is invoked after camera is released.
             Log.e(TAG, e.toString(), e);
         }
     }
@@ -149,12 +149,15 @@ public class ZXingScannerView extends BarcodeScannerView {
         if (rect == null) {
             return null;
         }
-        // Go ahead and assume it's YUV rather than die.
+
         PlanarYUVLuminanceSource source = null;
+
         try {
             source = new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top, rect.width(), rect.height(), false);
         } catch (Exception e) {
+            Log.e(TAG, e.toString(), e);
         }
+
         return source;
     }
 }

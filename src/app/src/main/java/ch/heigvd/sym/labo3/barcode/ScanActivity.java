@@ -1,6 +1,5 @@
 package ch.heigvd.sym.labo3.barcode;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -30,7 +29,7 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
     String contents, format;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
 

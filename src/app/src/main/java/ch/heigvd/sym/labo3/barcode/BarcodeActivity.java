@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import ch.heigvd.sym.labo3.R;
 
-// TODO comments, headers
-
 /**
  * Activity that launches the scanner and prints the results in the textbox
  *
@@ -35,6 +33,7 @@ public class BarcodeActivity extends AppCompatActivity {
 
         Button scanButton = findViewById(R.id.scanButton);
 
+        // Start activity for result on button press
         scanButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, ScanActivity.class);
             startActivityForResult(intent, REQUEST_CODE);
@@ -44,12 +43,14 @@ public class BarcodeActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        // Check if activity went well
         if (requestCode == REQUEST_CODE) {
+            // For our result code
             if (resultCode == Activity.RESULT_OK) {
+                // Set our text fields
                 barcodeContent.setText(data.getStringExtra("contents"));
                 barcodeFormat.setText(data.getStringExtra("format"));
-            } else {
-                // Log error
             }
         }
     }
