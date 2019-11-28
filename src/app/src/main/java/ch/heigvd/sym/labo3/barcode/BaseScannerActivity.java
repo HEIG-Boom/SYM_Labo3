@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo3;
+package ch.heigvd.sym.labo3.barcode;
 
 import android.view.MenuItem;
 

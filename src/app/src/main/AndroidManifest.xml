@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".BarcodeScanner"></activity>
-        <activity android:name=".BarcodeActivity" />
+        <activity android:name=".barcode.BarcodeActivity" />
         <activity android:name=".NFCActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -23,8 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScanActivity" />
-        <activity android:name=".BaseScannerActivity" />
+        <activity android:name=".barcode.ScanActivity" />
+        <activity android:name=".barcode.BaseScannerActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo3;
+package ch.heigvd.sym.labo3.barcode;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.zxing.Result;
 
+import ch.heigvd.sym.labo3.R;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class ScanActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
