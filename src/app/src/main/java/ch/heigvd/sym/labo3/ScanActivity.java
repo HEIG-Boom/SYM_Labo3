@@ -3,7 +3,6 @@ package ch.heigvd.sym.labo3;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.media.MediaBrowserServiceCompat;
 
 import android.Manifest;
 import android.content.Intent;
@@ -18,12 +17,11 @@ import com.google.zxing.Result;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class ScanActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
-
     private ZXingScannerView mScannerView;
     private static final int WRITE_EXST = 1;
     private static final int REQUEST_PERMISSION = 123;
     int CAMERA;
-    String position,formt;
+    String position, formt;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,16 +29,17 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
         setContentView(R.layout.activity_scan);
 //        Thread.setDefaultUncaughtExceptionHandler(new UnCaughtException(this));
 
-        if( ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(new String[]{Manifest.permission.CAMERA},5);
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, 5);
             }
         }
 
-        ViewGroup contentFrame = (ViewGroup) findViewById(R.id.content_frame);
+        ViewGroup contentFrame = findViewById(R.id.content_frame);
         mScannerView = new ZXingScannerView(this);
         contentFrame.addView(mScannerView);
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -56,21 +55,16 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
 
     @Override
     public void handleResult(Result rawResult) {
-        Toast.makeText(this, "Contents = " + rawResult.getText() +", Format = " + rawResult.getBarcodeFormat().toString(), Toast.LENGTH_LONG).show();
-        position=rawResult.getText();
-        formt=rawResult.getBarcodeFormat().toString();
-        Intent intent=new Intent();
-        intent.putExtra("Contents",position);
-        intent.putExtra("Format",formt);
-        setResult(RESULT_OK,intent);
+        Toast.makeText(this, "Contents = " + rawResult.getText() + ", Format = " + rawResult.getBarcodeFormat().toString(), Toast.LENGTH_LONG).show();
+        position = rawResult.getText();
+        formt = rawResult.getBarcodeFormat().toString();
+        Intent intent = new Intent();
+        intent.putExtra("Contents", position);
+        intent.putExtra("Format", formt);
+        setResult(RESULT_OK, intent);
         finish();
-
     }
 
-    @Override
-    public void handleResult(MediaBrowserServiceCompat.Result rawResult) {
-
-    }
 //    private ZXingScannerView scannerView;
 //
 //    @Override

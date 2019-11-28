@@ -5,4 +5,5 @@
     <string name="btn_connect">Connect</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="scanner">Place the camera in front of the barcode</string>
 </resources>
