@@ -31,4 +31,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'me.dm7.barcodescanner:zxing:1.9'
+
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+//    implementation 'com.android.support:appcompat-v7:28.+'
+//    implementation 'com.android.support:design:28.+'
+//    implementation 'com.android.support:support-v4:28.+'
+    implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
+    implementation 'com.android.support:multidex:1.0.3'
 }
