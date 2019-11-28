@@ -9,23 +9,22 @@ import android.widget.TextView;
 
 import ch.heigvd.sym.labo3.R;
 
+// TODO comments, headers
+// Source : http://www.codeplayon.com/2018/10/android-create-a-bar-code-scanner-zxingscannerview/
 public class BarcodeActivity extends AppCompatActivity {
-
-    public static TextView barCodeValue;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barcode);
 
-        barCodeValue = findViewById(R.id.barcodeValue);
+        TextView barCodeValue = findViewById(R.id.barcodeValue);
 
         Button scanButton = findViewById(R.id.scanButton);
 
+        // TODO start activity for result
         scanButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, ScanActivity.class);
             startActivity(intent);
         });
-
     }
 }

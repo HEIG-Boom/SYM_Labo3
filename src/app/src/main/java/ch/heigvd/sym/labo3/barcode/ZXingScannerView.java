@@ -9,8 +9,6 @@ import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import androidx.media.MediaBrowserServiceCompat;
-
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
@@ -21,7 +19,6 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -29,18 +26,16 @@ import java.util.Map;
 import me.dm7.barcodescanner.core.BarcodeScannerView;
 import me.dm7.barcodescanner.core.DisplayUtils;
 
+// TODO rename things and log exceptions!!!
 public class ZXingScannerView extends BarcodeScannerView {
     private static final String TAG = "ZXingScannerView";
 
     public interface ResultHandler {
         void handleResult(Result rawResult);
-
-        void handleResult(MediaBrowserServiceCompat.Result rawResult);
     }
 
     private MultiFormatReader mMultiFormatReader;
     public static final List<BarcodeFormat> ALL_FORMATS = new ArrayList<>();
-    private List<BarcodeFormat> mFormats;
     private ResultHandler mResultHandler;
 
     static {
@@ -69,25 +64,9 @@ public class ZXingScannerView extends BarcodeScannerView {
         initMultiFormatReader();
     }
 
-    public void setFormats(List<BarcodeFormat> formats) {
-        mFormats = formats;
-        initMultiFormatReader();
-    }
-
-    public void setResultHandler(ResultHandler resultHandler) {
-        mResultHandler = resultHandler;
-    }
-
-    public Collection<BarcodeFormat> getFormats() {
-        if (mFormats == null) {
-            return ALL_FORMATS;
-        }
-        return mFormats;
-    }
-
     private void initMultiFormatReader() {
-        Map<DecodeHintType, Object> hints = new EnumMap<DecodeHintType, Object>(DecodeHintType.class);
-        hints.put(DecodeHintType.POSSIBLE_FORMATS, getFormats());
+        Map<DecodeHintType, Object> hints = new EnumMap<>(DecodeHintType.class);
+        hints.put(DecodeHintType.POSSIBLE_FORMATS, ALL_FORMATS);
         mMultiFormatReader = new MultiFormatReader();
         mMultiFormatReader.setHints(hints);
     }
@@ -127,7 +106,7 @@ public class ZXingScannerView extends BarcodeScannerView {
                     // continue
                 } catch (NullPointerException npe) {
                     // This is terrible
-                } catch (ArrayIndexOutOfBoundsException aoe) {
+                } catch (ArrayIndexOutOfBoundsException e) {
                 } finally {
                     mMultiFormatReader.reset();
                 }
@@ -154,11 +133,6 @@ public class ZXingScannerView extends BarcodeScannerView {
             // TODO: Terrible hack. It is possible that this method is invoked after camera is released.
             Log.e(TAG, e.toString(), e);
         }
-    }
-
-    public void resumeCameraPreview(ResultHandler resultHandler) {
-        mResultHandler = resultHandler;
-        super.resumeCameraPreview();
     }
 
     public PlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height) {

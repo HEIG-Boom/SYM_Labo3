@@ -35,7 +35,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="350dp"
         android:gravity="center"
-        android:text="hereIsYourValue"
+        android:text="@string/barcodeResult"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
