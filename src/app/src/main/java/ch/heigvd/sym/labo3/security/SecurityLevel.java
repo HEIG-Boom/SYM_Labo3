@@ -10,5 +10,6 @@ package ch.heigvd.sym.labo3.security;
 public enum SecurityLevel {
     HIGH,
     MEDIUM,
-    LOW
+    LOW,
+    NULL
 }

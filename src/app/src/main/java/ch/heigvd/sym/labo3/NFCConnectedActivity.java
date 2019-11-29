@@ -107,6 +107,9 @@ public class NFCConnectedActivity extends AppCompatActivity implements INFCOnAct
             case MEDIUM:
                 sLevel = SecurityLevel.LOW;
                 break;
+            case LOW:
+                sLevel = SecurityLevel.NULL;
+                break;
         }
     }
 
