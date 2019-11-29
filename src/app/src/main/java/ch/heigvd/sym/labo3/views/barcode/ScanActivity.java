@@ -14,17 +14,18 @@ import com.google.zxing.Result;
 
 import ch.heigvd.sym.labo3.R;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
+import me.dm7.barcodescanner.zxing.ZXingScannerView.ResultHandler;
 
 /**
  * Handles the results from the scanner view
- *
- * Source : http://www.codeplayon.com/2018/10/android-create-a-bar-code-scanner-zxingscannerview/
+ * <p>
+ * Source: http://www.codeplayon.com/2018/10/android-create-a-bar-code-scanner-zxingscannerview/
  *
  * @author Jael Dubey, Loris Gilliand, Mateo Tutic, Luc Wachter
  * @version 1.0
  * @since 2019-11-28
  */
-public class ScanActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+public class ScanActivity extends AppCompatActivity implements ResultHandler {
     private ZXingScannerView mScannerView;
     String contents, format;
 
