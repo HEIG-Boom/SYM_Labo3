@@ -26,7 +26,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView.ResultHandler;
  * @since 2019-11-28
  */
 public class ScanActivity extends AppCompatActivity implements ResultHandler {
-    private ZXingScannerView mScannerView;
+    private ZXingScannerView scanner;
     String contents, format;
 
     @Override
@@ -34,28 +34,30 @@ public class ScanActivity extends AppCompatActivity implements ResultHandler {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
 
+        // Request permission to use the camera
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(new String[]{Manifest.permission.CAMERA}, 5);
             }
         }
 
+        // Set the contentFrame to the ZXingScannerView
         ViewGroup contentFrame = findViewById(R.id.content_frame);
-        mScannerView = new ZXingScannerView(this);
-        contentFrame.addView(mScannerView);
+        scanner = new ZXingScannerView(this);
+        contentFrame.addView(scanner);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mScannerView.setResultHandler(this);
-        mScannerView.startCamera();
+        scanner.setResultHandler(this);
+        scanner.startCamera();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        mScannerView.stopCamera();
+        scanner.stopCamera();
     }
 
     @Override
@@ -63,11 +65,13 @@ public class ScanActivity extends AppCompatActivity implements ResultHandler {
         contents = rawResult.getText();
         format = rawResult.getBarcodeFormat().toString();
 
+        // Return result to previous Activity
         Intent returnIntent = new Intent();
         returnIntent.putExtra("contents", contents);
         returnIntent.putExtra("format", format);
         setResult(RESULT_OK, returnIntent);
 
+        // End this activity
         finish();
     }
 }
