@@ -77,6 +77,7 @@ public class NFCActivity extends AppCompatActivity implements INFCOnActivity {
         // It's important, that the activity is in the foreground (resumed). Otherwise an IllegalStateException is
         // thrown.
         nfcReader.setupForegroundDispatch();
+        btnConnect.setEnabled(false);
     }
 
     @Override

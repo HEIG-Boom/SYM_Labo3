@@ -159,7 +159,7 @@ public class NFCReader {
         @Override
         protected void onPostExecute(String result) {
             // This is the activity that will handle the content in the NDEF record
-            ((NFCActivity) activity).handleNFCMessage(result);
+            ((INFCOnActivity) activity).handleNFCMessage(result);
         }
     }
 }
