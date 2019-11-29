@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo3.barcode;
+package ch.heigvd.sym.labo3.views.barcode;
 
 import androidx.appcompat.app.AppCompatActivity;
 

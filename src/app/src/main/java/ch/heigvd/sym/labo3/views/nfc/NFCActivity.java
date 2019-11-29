@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo3;
+package ch.heigvd.sym.labo3.views.nfc;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ch.heigvd.sym.labo3.nfc.INFCOnActivity;
-import ch.heigvd.sym.labo3.nfc.NFCReader;
+import ch.heigvd.sym.labo3.R;
+import ch.heigvd.sym.labo3.utils.nfc.INFCOnActivity;
+import ch.heigvd.sym.labo3.utils.nfc.NFCReader;
 
 /**
  * NFC activity class used to display the login form.

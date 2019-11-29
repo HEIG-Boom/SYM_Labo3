@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo3.security;
+package ch.heigvd.sym.labo3.utils.security;
 
 /**
  * This enum represents the different security levels

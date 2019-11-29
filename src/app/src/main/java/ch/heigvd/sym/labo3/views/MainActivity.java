@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo3;
+package ch.heigvd.sym.labo3.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import ch.heigvd.sym.labo3.barcode.BarcodeActivity;
+import ch.heigvd.sym.labo3.R;
+import ch.heigvd.sym.labo3.views.barcode.BarcodeActivity;
+import ch.heigvd.sym.labo3.views.nfc.NFCActivity;
 
 /**
  * Main activity class used to display the two buttons to start NFC and Barcode activities

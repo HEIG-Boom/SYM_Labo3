@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo3.barcode;
+package ch.heigvd.sym.labo3.utils.barcode;
 
 import android.content.Context;
 import android.content.res.Configuration;

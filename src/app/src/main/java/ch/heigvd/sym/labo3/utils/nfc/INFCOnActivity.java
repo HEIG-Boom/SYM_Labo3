@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo3.nfc;
+package ch.heigvd.sym.labo3.utils.nfc;
 
 /**
  * Used for activities that will use NFC with NFCReader class

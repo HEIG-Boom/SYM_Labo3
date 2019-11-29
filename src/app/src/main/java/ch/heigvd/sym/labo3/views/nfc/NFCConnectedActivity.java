@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo3;
+package ch.heigvd.sym.labo3.views.nfc;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import ch.heigvd.sym.labo3.nfc.INFCOnActivity;
-import ch.heigvd.sym.labo3.nfc.NFCReader;
-import ch.heigvd.sym.labo3.security.SecurityLevel;
+import ch.heigvd.sym.labo3.R;
+import ch.heigvd.sym.labo3.utils.nfc.INFCOnActivity;
+import ch.heigvd.sym.labo3.utils.nfc.NFCReader;
+import ch.heigvd.sym.labo3.utils.security.SecurityLevel;
 
 /**
  * NFC connected activity used to display the current security level.

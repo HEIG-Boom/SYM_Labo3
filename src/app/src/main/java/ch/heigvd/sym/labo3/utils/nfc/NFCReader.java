@@ -1,4 +1,4 @@
-package ch.heigvd.sym.labo3.nfc;
+package ch.heigvd.sym.labo3.utils.nfc;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -14,8 +14,6 @@ import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
-
-import ch.heigvd.sym.labo3.NFCActivity;
 
 /**
  * This class handles all elements needed to read an NFC tag
